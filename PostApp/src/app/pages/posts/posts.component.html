@@ -1,4 +1,20 @@
 <div class="container">
+    <div class="row">
+        <div class="col">
+            <form (submit)="postGetir()">
+
+                <div class="form-group">
+
+                    <label for="exampleInputEmail1">Id Gir</label>
+
+                    <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" [(ngModel)]="id" name="id" />
+
+                </div>
+
+                <button type="submit" class="btn btn-primary">Getir</button>
+            </form>
+        </div>
+    </div>
     <div class="row" *ngFor="let postItem of posts">
         <div class="col">
             <app-post-item [post]="postItem"></app-post-item>

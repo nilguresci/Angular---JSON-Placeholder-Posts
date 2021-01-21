@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Post } from 'src/app/models/Post';
+import { PostService } from 'src/app/services/post.service';
 
 @Component({
   selector: 'app-posts',
@@ -7,16 +8,27 @@ import { Post } from 'src/app/models/Post';
   styleUrls: ['./posts.component.css']
 })
 export class PostsComponent implements OnInit {
+posts:Post[]=[];
 
-  posts:Post[]=[
-    new Post(1,'Post 1','Ahmet bebek öğretiyor.'),
-  new Post(2,'Ahmet bebeğin yaptıkları','Ahmet bebek Nili üzdü.'),
-  new Post()
-];
-
-  constructor() { }
+id:string="";
+  constructor(private postService:PostService) { }
 
   ngOnInit(): void {
+    this.postService.getPosts().subscribe((res) => {
+      this.posts=res;
+    })
   }
+
+postGetir():void{
+  if(this.id==''){
+    this.postService.getPosts().subscribe((res) => {
+      this.posts=res;
+    })
+  }else{
+    this.postService.getPost(Number(this.id)).subscribe((res) =>{
+    this.posts=[res];
+  })
+  }
+}
 
 }
