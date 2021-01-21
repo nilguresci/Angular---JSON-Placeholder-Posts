@@ -10,7 +10,7 @@ export class PostsComponent implements OnInit {
 
   posts:Post[]=[
     new Post(1,'Post 1','Ahmet bebek öğretiyor.'),
-  new Post(2,'Ahmbet bebeğin yaptıkları','Ahmbet bebek Nili üzdü.'),
+  new Post(2,'Ahmet bebeğin yaptıkları','Ahmet bebek Nili üzdü.'),
   new Post()
 ];
 

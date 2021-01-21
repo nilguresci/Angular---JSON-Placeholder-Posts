@@ -1,11 +1,7 @@
 <div class="container">
-    <div class="row">
+    <div class="row" *ngFor="let postItem of posts">
         <div class="col">
-            <ul *ngFor="let post of posts">
-                <li>{{post.id}}</li>
-                <li>{{post.title}}</li>
-                <li>{{post.body}}</li>
-            </ul>
+            <app-post-item [post]="postItem"></app-post-item>
         </div>
     </div>
 </div>
